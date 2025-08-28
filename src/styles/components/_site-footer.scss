@@ -3,4 +3,6 @@
   background-color: var(--c-background-darker);
   border-bottom-left-radius: var(--border-radius);
   border-bottom-right-radius: var(--border-radius);
+  border: calc(var(--border-width) * 0.75) solid var(--c-primary);
+  border-top-width: 0;
 }

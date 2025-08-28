@@ -13,4 +13,5 @@
 
 .site-layout:has(.site-main + .site-footer) .site-main {
   border-radius: 0;
+  border-bottom-width: 0;
 }
