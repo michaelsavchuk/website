@@ -78,3 +78,21 @@ svg {
   display: block;
   max-width: 100%;
 }
+
+article {
+  a {
+    font-weight: 500;
+    text-underline-offset: 2px;
+    transition: background-color 150ms, box-shadow 150ms;
+
+    &:hover, &:focus {
+      background-color: var(--c-background-darker);
+      box-shadow: 0 0 0 0.25em var(--c-background-darker);
+      border-radius: 0.125em;
+    }
+  }
+
+  li:not(:first-child) {
+    margin-top: 0.5em;
+  }
+}
