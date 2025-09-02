@@ -1,14 +1,12 @@
 ---
 import { Lightbulb } from "./icons";
-
-// TODO: Refactor to use blockquote
 ---
 
-<aside class="callout shadow">
-  <div class="callout-icon">
+<blockquote class="callout shadow">
+  <div class="callout-icon" aria-hidden="true">
     <Lightbulb class="icon" />
   </div>
   <div class="callout-content trim-margins">
     <slot />
   </div>
-</aside>
+</blockquote>
