@@ -1,0 +1,29 @@
+@use '../breakpoints';
+
+.callout {
+  background-color: var(--c-primary);
+  color: var(--c-background);
+  padding: 1rem;
+  border-radius: var(--border-radius);
+  margin: 2em 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+
+  @media (min-width: breakpoints.$mobile) {
+    grid-template-columns: 2.75rem 1fr;
+    gap: 0.5rem;
+  }
+
+  .callout-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 2em;
+    width: 2em;
+    background-color: var(--c-background);
+    color: var(--c-primary);
+    border-radius: 99rem;
+    margin-top: 0.25em;
+  }
+}
