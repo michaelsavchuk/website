@@ -3,7 +3,7 @@
 .site-layout {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: calc(var(--layout-padding) * 1.5);
   padding: 2rem 0;
 }
 
