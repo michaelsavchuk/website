@@ -52,6 +52,8 @@ const navItems: NavigationItem[] = [
     />
   </head>
   <body>
+    <a href="#main" class="skip-to-content">Skip to content</a>
+
     <div class="site-layout">
       <div class="container shadow">
         <header class="site-header">
@@ -83,7 +85,7 @@ const navItems: NavigationItem[] = [
           </div>
         </header>
 
-        <main class="site-main trim-margins">
+        <main class="site-main trim-margins" id="main">
           <slot />
         </main>
 
