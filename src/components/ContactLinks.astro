@@ -1,0 +1,49 @@
+---
+import { Bluesky, GitHub, ItchIo, LinkedIn } from "../components/icons";
+
+const socials = [
+  {
+    link: "https://github.com/michaelsavchuk",
+    icon: GitHub,
+    label: "GitHub",
+  },
+  {
+    link: "https://bsky.app/profile/michaelsavchuk.com",
+    icon: Bluesky,
+    label: "Bluesky",
+  },
+  {
+    link: "https://www.linkedin.com/in/michaelsavchuk/",
+    icon: LinkedIn,
+    label: "LinkedIn",
+  },
+  {
+    link: "https://pixelrobin.itch.io/",
+    icon: ItchIo,
+    label: "Itch.io",
+  },
+];
+
+interface Props {
+  buttonClass?: string;
+}
+
+const { buttonClass } = Astro.props;
+---
+
+<p class="horizontal-flow">
+  <a
+    href="mailto:contact@michaelsavchuk.com"
+    class={`button ${buttonClass ?? ""}`}>Email Me</a
+  >
+  <span>
+    {
+      socials.map((social) => (
+        <a class="icon-button" href={social.link} title={social.label}>
+          <span class="sr-only">{social.label}</span>
+          <social.icon />
+        </a>
+      ))
+    }
+  </span>
+</p>

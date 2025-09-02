@@ -1,0 +1,29 @@
+---
+import { Image } from "astro:assets";
+import profile from "../assets/images/me.jpg";
+import ContactLinks from "./ContactLinks.astro";
+---
+
+<div class="about-aside">
+  <div class="about-aside-image">
+    <Image
+      src={profile}
+      class="header-image shadow"
+      alt="Headshot of me with a plain blurred camera. I'm slightly smiling."
+      loading="lazy"
+    />
+  </div>
+
+  <h2 class="h1 about-aside-title">
+    Hello,<br />
+    I'm Michael Savchuk.
+  </h2>
+
+  <div class="about-aside-content trim-margins">
+    <p>
+      I’m a Full-Stack Developer with a background in design, passionate about
+      building digital experiences that empower and delight.
+    </p>
+    <ContactLinks buttonClass="button--secondary" />
+  </div>
+</div>

@@ -1,6 +1,11 @@
 .header-image {
-  background-color: var(--c-secondary);
-  border: var(--border-width) solid var(--c-secondary);
+  --header-image-border-color: var(--c-secondary);
+  --header-image-border-width: calc(var(--border-width) * 1.25);
+
+  display: block;
+  height: auto;
+  background-color: var(--header-image-border-color);
+  border: var(--header-image-border-width) solid var(--header-image-border-color);
   border-radius: var(--border-radius);
   transition: transform 300ms;
   transform-origin: 33% 70%;

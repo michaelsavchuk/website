@@ -5,10 +5,6 @@
   flex-direction: column;
   gap: 1rem;
   padding: 2rem 0;
-
-  .container {
-    filter: drop-shadow(0px 2px rgba(53, 40, 151, 0.15));
-  }
 }
 
 .site-layout:has(.site-main + .site-footer) .site-main {
