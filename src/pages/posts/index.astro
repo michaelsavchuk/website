@@ -1,10 +1,11 @@
 ---
 import SiteLayout from "../../layouts/SiteLayout.astro";
 import PostList from "../../components/PostList.astro";
+import { formatTitle } from "../../helpers/format-title";
 ---
 
 <SiteLayout
-  title="Posts"
+  title={formatTitle("Posts")}
   description="Archive of my latest posts"
   currentNavItem="posts"
   headerTitle="Posts"

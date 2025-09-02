@@ -4,6 +4,7 @@ import { format } from "date-fns";
 
 import SiteLayout from "../../layouts/SiteLayout.astro";
 import AboutAside from "../../components/AboutAside.astro";
+import { formatTitle } from "../../helpers/format-title";
 
 export async function getStaticPaths() {
   const entries = await getCollection("posts");
@@ -19,11 +20,13 @@ const { Content } = await entry.render();
 ---
 
 <SiteLayout
-  title={entry.data.title}
+  title={formatTitle(entry.data.title)}
+  description={entry.data.description ?? undefined}
   currentNavItem="posts"
   headerTitle={entry.data.title}
 >
   <Fragment slot="header-content">
+    {entry.data.lead ? <p>{entry.data.lead}</p> : null}
     <p class="meta">
       Published on <time datetime={format(entry.data.published, "yyyy-MM-dd")}
         >{format(entry.data.published, "MMMM d, y")}</time
