@@ -39,3 +39,8 @@
     --button-elevation: 2px;
   }
 }
+
+.button--secondary {
+  background-color: var(--c-secondary);
+  color: var(--c-background);
+}

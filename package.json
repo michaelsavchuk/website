@@ -14,8 +14,9 @@
   "dependencies": {
     "@astrojs/check": "^0.6.0",
     "@astrojs/mdx": "^3.0.0",
+    "@astrojs/rss": "^4.0.12",
     "astro": "^4.8.2",
-    "date-fns": "^3.6.0",
+    "date-fns": "^4.1.0",
     "typescript": "^5.4.5"
   },
   "devDependencies": {

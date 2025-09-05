@@ -1,31 +1,8 @@
 ---
 import SiteLayout from "../layouts/SiteLayout.astro";
-import { Bluesky, GitHub, ItchIo, LinkedIn } from "../components/icons";
 import PostList from "../components/PostList.astro";
+import ContactLinks from "../components/ContactLinks.astro";
 import profile from "../assets/images/me.jpg";
-
-const socials = [
-  {
-    link: "https://github.com/michaelsavchuk",
-    icon: GitHub,
-    label: "GitHub",
-  },
-  {
-    link: "https://bsky.app/profile/michaelsavchuk.com",
-    icon: Bluesky,
-    label: "Bluesky",
-  },
-  {
-    link: "https://www.linkedin.com/in/michaelsavchuk/",
-    icon: LinkedIn,
-    label: "LinkedIn",
-  },
-  {
-    link: "https://pixelrobin.itch.io/",
-    icon: ItchIo,
-    label: "Itch.io",
-  },
-];
 ---
 
 <SiteLayout
@@ -55,19 +32,7 @@ const socials = [
         too.
       </p>
       <p>Let’s get in touch!</p>
-      <p class="horizontal-flow">
-        <a href="mailto:contact@michaelsavchuk.com" class="button">Email Me</a>
-        <span>
-          {
-            socials.map((social) => (
-              <a class="icon-button" href={social.link} title={social.label}>
-                <span class="sr-only">{social.label}</span>
-                <social.icon />
-              </a>
-            ))
-          }
-        </span>
-      </p>
+      <ContactLinks />
     </section>
   </div>
 

@@ -7,94 +7,111 @@ import { Image } from "astro:assets";
 import SiteNav, { type NavigationItem } from "../components/SiteNav.astro";
 
 interface Props {
-	currentNavItem?: string;
-	title: string;
-	description?: string;
-	headerImage?: ImageMetadata;
-	headerTitle: string;
+  currentNavItem?: string;
+  title: string;
+  description?: string;
+  headerImage?: ImageMetadata;
+  headerTitle: string;
 }
 
 const { title, description, headerImage, currentNavItem, headerTitle } =
-	Astro.props;
+  Astro.props;
 
 const navItems: NavigationItem[] = [
-	{
-		title: "Home",
-		path: "/",
-		name: "home",
-	},
-	{
-		title: "Posts",
-		path: "/posts",
-		name: "posts",
-	},
+  {
+    title: "Home",
+    path: "/",
+    name: "home",
+  },
+  {
+    title: "Posts",
+    path: "/posts",
+    name: "posts",
+  },
 ];
 ---
 
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-		<title>{title}</title>
-		{description ? <meta name="description" content={description} /> : null}
+    <title>{title}</title>
+    {description ? <meta name="description" content={description} /> : null}
 
-		<link rel="icon" href="/favicon.ico" sizes="any" />
-		<link rel="icon" href="/icon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" href="/icon.svg" type="image/svg+xml" />
 
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link
-			href="https://fonts.googleapis.com/css2?family=Rethink+Sans:ital,wght@0,400..800;1,400..800&display=swap"
-			rel="stylesheet"
-		/>
-	</head>
-	<body>
-		<div class="site-layout">
-			<div class="container">
-				<header class="site-header">
-					<SiteNav items={navItems} current={currentNavItem} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rethink+Sans:ital,wght@0,400..800;1,400..800&display=swap"
+      rel="stylesheet"
+    />
 
-					<div class="site-header-main">
-						{
-							headerImage ? (
-								<div class="site-header-image">
-									<Image
-										src={headerImage}
-										class="header-image shadow"
-										alt="Headshot of me with a plain blurred camera. I'm slightly smiling."
-										loading="eager"
-									/>
-								</div>
-							) : null
-						}
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title="Michael Savchuk"
+      href={new URL("rss.xml", Astro.site)}
+    />
+  </head>
+  <body>
+    <a href="#main" class="skip-to-content">Skip to content</a>
 
-						<h1 class="site-header-title" set:html={headerTitle} />
+    <div class="site-layout">
+      <div class="container shadow">
+        <header class="site-header">
+          <SiteNav items={navItems} current={currentNavItem} />
 
-						{
-							Astro.slots.has("header-content") ? (
-								<div class="site-header-content trim-margins">
-									<slot name="header-content" />
-								</div>
-							) : null
-						}
-					</div>
-				</header>
+          <div class="site-header-main">
+            {
+              headerImage ? (
+                <div class="site-header-image shadow">
+                  <Image
+                    src={headerImage}
+                    class="header-image"
+                    alt="Headshot of me with a plain blurred camera. I'm slightly smiling."
+                    loading="eager"
+                  />
+                </div>
+              ) : null
+            }
 
-				<main class="site-main trim-margins">
-					<slot />
-				</main>
+            <h1 class="site-header-title" set:html={headerTitle} />
 
-				{
-					Astro.slots.has("footer-content") ? (
-						<footer class="trim-margins site-footer">
-							<slot name="footer-content" />
-						</footer>
-					) : null
-				}
-			</div>
-		</div>
-	</body>
+            {
+              Astro.slots.has("header-content") ? (
+                <div class="site-header-content trim-margins">
+                  <slot name="header-content" />
+                </div>
+              ) : null
+            }
+          </div>
+        </header>
+
+        <main class="site-main trim-margins" id="main">
+          <slot />
+        </main>
+
+        {
+          Astro.slots.has("footer-content") ? (
+            <footer class="trim-margins site-footer">
+              <slot name="footer-content" />
+            </footer>
+          ) : null
+        }
+      </div>
+
+      {
+        Astro.slots.has("aside-content") ? (
+          <aside class="site-aside container shadow">
+            <slot name="aside-content" />
+          </aside>
+        ) : null
+      }
+    </div>
+  </body>
 </html>
