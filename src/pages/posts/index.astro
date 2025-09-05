@@ -11,7 +11,10 @@ import { formatTitle } from "../../helpers/format-title";
   headerTitle="Posts"
 >
   <Fragment slot="header-content">
-    <p>Not a lot here yet, but stay tuned.</p>
+    <p>
+      Stay tuned! Follow along on my <a href={new URL("rss.xml", Astro.site)}
+        >RSS feed.</a>
+    </p>
   </Fragment>
 
   <PostList />
